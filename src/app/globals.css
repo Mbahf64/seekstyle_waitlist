@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satoshi:ital,wght@0,400;0,500;1,400&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+:root {
+  --Color-outline-outline: #D6DADE;
+  --sds-size-stroke-border: 0.8; /* Example value, replace with actual value */
+  --Color-text-text-secondary: #646D80;
+  --Color-text-text-primary: #1B243F;
+  --marquee-width: 80vh;
+  --marquee-height: 20vh;
+  /* --marquee-elements: 12; */ /* defined with JavaScript */
+  --marquee-elements-displayed: 5;
+  --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+  --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+}
+
+.custom-border {
+  border: 1px solid var(--Color-outline-outline, #D6DADE);
+}
+
+.custom-opacity {
+  opacity: var(--sds-size-stroke-border);
+}
+
+
+.custom-text-color {
+  color: var(--Color-text-text-primary, #1B243F);
+}
+
+.custom-font-family {
+  font-family: 'Gelasio', serif;
+}
+
+
+.custom-text-color-01 {
+  color: var(--Color-text-text-secondary, #646D80);
+}
+
+.custom-font-family-01 {
+  font-family: 'Satoshi', sans-serif;
+}
+
+
+@media (max-width: 600px) {
+  html { font-size: 12px; }
+  :root {
+    --marquee-width: 10vw;
+    --marquee-height: 16vh;
+    --marquee-elements-displayed: 3;
+  }
+  .marquee:before, .marquee:after { width: 5rem; }
+}
+
+

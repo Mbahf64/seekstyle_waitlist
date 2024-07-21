@@ -1,0 +1,70 @@
+
+
+"use client";
+
+import React, { useState } from "react";
+const WaitlistForm = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+      if (response.ok) {
+        setEmail("");
+        setMessage("You have been added to the waitlist!");
+      } else {
+        const data = await response.json();
+        setMessage(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      setMessage("Error: Unable to submit your request.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  return (
+    <div className="flex flex-col items-center gap-[16px]">
+      <div className="relative w-[336px]">
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="custom-font-family-01 text-[14px] bg-transparent w-full h-[46px] rounded-md pl-[16px] pr-[140px] mr-[px]
+           outline-none border-[2px] border-[#D6DADE] focus:border-[#D6DADE] focus:ring-0 active:bg-transparent"
+        />
+
+        <button
+          type="submit"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 custom-font-family-01 bg-[#1B243F] text-white rounded-md w-[115px] h-[36px] flex justify-center items-center gap-2 -mr-[1px] group"
+        >
+          <p className="text-[13px] font-medium custom-font-family-01">
+            Join Waitlist
+          </p>
+          {/* {isLoading ? "Submitting..." : "Join Waitlist"} */}
+          <img
+            className="h-5 w-5 relative overflow-hidden shrink-0 transition-transform duration-300 ease-in-out transform group-hover:translate-x-1"
+            alt=""
+            src="/arrow_forward.svg"
+          />
+        </button>
+      </div>
+      {message && <p>{message}</p>}
+      <p className="custom-font-family text-[12px]">
+        Get a FREE 6 Months of all our Pro Features
+      </p>
+    </div>
+  );
+};
+
+export default WaitlistForm;
