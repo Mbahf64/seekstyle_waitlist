@@ -67,179 +67,388 @@
 
 // export default WaitlistForm;
 
-"use client";
+// "use client";
 
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-const WaitlistForm = () => {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [messageType, setMessageType] = useState(""); // State for message type
+// const WaitlistForm = () => {
+//   const [email, setEmail] = useState("");
+//   const [message, setMessage] = useState("");
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [messageType, setMessageType] = useState(""); // State for message type
 
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
+//   const validateEmail = (email) => {
+//     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     return re.test(email);
+//   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+//   const handleSubmit = async (event) => {
+//     event.preventDefault(); // Prevent default form submission behavior
 
-    if (!validateEmail(email)) {
-      setMessage("Invalid email address.");
-      setMessageType("error");
-      setIsLoading(false); // Ensure loading state is reset
-      return;
-    }
+//     if (!validateEmail(email)) {
+//       setMessage("Invalid email address.");
+//       setMessageType("error");
+//       setIsLoading(false); // Ensure loading state is reset
+//       return;
+//     }
 
-    setIsLoading(true);
-    try {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+//     setIsLoading(true);
+//     try {
+//       const response = await fetch("/api/waitlist", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({ email }),
+//       });
 
-      if (response.ok) {
-        setEmail("");
-        setMessage("You have been added to the waitlist!");
-        setMessageType("success"); // Set message type to success
-        setTimeout(() => {
-          setMessage(""); // Clear the message after 5 seconds
-          setMessageType("");
-        }, 2000);
-      } else {
-        const data = await response.json();
-        setMessage(data.message || "Something went wrong.");
-        setMessageType("error"); // Set message type to error
-      }
-    } catch (error) {
-      setMessage("Error: Unable to submit your request.");
-      setMessageType("error"); // Set message type to error
-    } finally {
-      setIsLoading(false); // Ensure loading state is reset
-    }
-  };
+//       if (response.ok) {
+//         setEmail("");
+//         setMessage("You have been added to the waitlist!");
+//         setMessageType("success"); // Set message type to success
+//         setTimeout(() => {
+//           setMessage(""); // Clear the message after 5 seconds
+//           setMessageType("");
+//         }, 2000);
+//       } else {
+//         const data = await response.json();
+//         setMessage(data.message || "Something went wrong.");
+//         setMessageType("error"); // Set message type to error
+//       }
+//     } catch (error) {
+//       setMessage("Error: Unable to submit your request.");
+//       setMessageType("error"); // Set message type to error
+//     } finally {
+//       setIsLoading(false); // Ensure loading state is reset
+//     }
+//   };
 
+//   return (
+//     <div className="flex flex-col items-center gap-[16px]">
+//       <div onSubmit={handleSubmit} className="relative w-[336px]">
+//         <input
+//           type="text"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//           required
+//           className="custom-font-family-01 text-[14px] bg-transparent w-full h-[46px] rounded-md pl-[16px] pr-[140px] outline-none border-[2px] border-[#D6DADE] focus:border-[#D6DADE] focus:ring-0 active:bg-transparent"
+//           placeholder="Enter your email"
+//         />
+
+//         <button
+//           type="submit"
+//           disabled={isLoading}
+//           className="absolute right-2 top-1/2 transform -translate-y-1/2 custom-font-family-01
+//    bg-[#1B243F] text-white rounded-md w-[115px] h-[36px] flex justify-center 
+//    items-center gap-2 -mr-[3px] group"
+//         >
+//           {isLoading ? (
+//             <svg
+//               className="animate-spin h-5 w-5 text-white"
+//               xmlns="http://www.w3.org/2000/svg"
+//               fill="none"
+//               viewBox="0 0 24 24"
+//             >
+//               <circle
+//                 className="opacity-25"
+//                 cx="12"
+//                 cy="12"
+//                 r="10"
+//                 stroke="currentColor"
+//                 strokeWidth="4"
+//               ></circle>
+//               <path
+//                 className="opacity-75"
+//                 fill="currentColor"
+//                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+//               ></path>
+//             </svg>
+//           ) : (
+//             <>
+//               <p className="text-[13px] font-medium custom-font-family-01 pl-2">
+//                 Join Waitlist
+//               </p>
+//               <img
+//                 className="h-5 w-5 relative overflow-hidden shrink-0 transition-transform duration-300 ease-in-out transform group-hover:translate-x-0.5"
+//                 alt=""
+//                 src="/arrow_forward.svg"
+//               />
+//             </>
+//           )}
+//         </button>
+//       </div>
+//       {message && (
+//         <p
+//           className={`text-center ${
+//             messageType === "success" ? "text-green-500" : "text-red-500"
+//           }`}
+//         >
+//           {message}
+//         </p>
+//       )}
+
+//       <p className="custom-font-family text-[12px]">
+//         Get a FREE 6 Months of all our Pro Features
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default WaitlistForm;
+
+
+// // components/MyComponent.js
+// import '../styles/globals.css'; // Ensure Tailwind CSS is imported
+
+// const MyComponent = ({ isLoading }) => (
+//   <button
+//     type="submit"
+//     disabled={isLoading}
+//     className="relative right-2 top-1/2 transform -translate-y-1/2 custom-font-family-01 bg-[#1B243F] text-white rounded-md w-[115px] h-[36px] flex justify-center items-center gap-2 group" // Added `group` class here
+//   >
+//     {isLoading ? (
+//       <svg
+//         className="animate-spin h-5 w-5 text-white"
+//         xmlns="http://www.w3.org/2000/svg"
+//         fill="none"
+//         viewBox="0 0 24 24"
+//       >
+//         <circle
+//           className="opacity-25"
+//           cx="12"
+//           cy="12"
+//           r="10"
+//           stroke="currentColor"
+//           strokeWidth="4"
+//         ></circle>
+//         <path
+//           className="opacity-75"
+//           fill="currentColor"
+//           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+//         ></path>
+//       </svg>
+//     ) : (
+//       <>
+//         <p className="text-[13px] font-medium custom-font-family-01 pl-2">
+//           Join Waitlist
+//         </p>
+//         <img
+//           className="h-5 w-5 relative overflow-hidden shrink-0 transition-transform duration-300 ease-in-out transform group-hover:translate-x-1" // Adjust translate-x value
+//           alt=""
+//           src="/arrow_forward.svg"
+//         />
+//       </>
+//     )}
+//   </button>
+// );
+
+// export default MyComponent;
+
+
+
+
+
+
+
+
+
+import { FunctionComponent } from "react";
+
+const Mobile: FunctionComponent = () => {
   return (
-    <div className="flex flex-col items-center gap-[16px]">
-      <div onSubmit={handleSubmit} className="relative w-[336px]">
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="custom-font-family-01 text-[14px] bg-transparent w-full h-[46px] rounded-md pl-[16px] pr-[140px] outline-none border-[2px] border-[#D6DADE] focus:border-[#D6DADE] focus:ring-0 active:bg-transparent"
-          placeholder="Enter your email"
+    <div className="w-full relative bg-color-button-button-label-primary overflow-hidden flex flex-row items-end justify-start pt-[142.1px] px-0 pb-[56.3px] box-border gap-[339.2px] leading-[normal] tracking-[normal] text-center text-xs text-color-text-text-secondary font-inter mq407:flex-wrap mq418:gap-[85px]">
+      <img
+        className="h-[2290px] w-[2570.4px] absolute !m-[0] right-[-1176.7px] bottom-[-931.2px] object-contain z-[1]"
+        alt=""
+        src="/group-1171274795@2x.png"
+      />
+      <div className="ml-[-408.2px] h-[86.6px] w-[69px] flex flex-col items-start justify-start shrink-0">
+        <img
+          className="self-stretch h-[30px] relative max-w-full overflow-hidden shrink-0 z-[1]"
+          loading="lazy"
+          alt=""
+          src="/zara-logo-1.svg"
         />
-
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 custom-font-family-01
-   bg-[#1B243F] text-white rounded-md w-[115px] h-[36px] flex justify-center 
-   items-center gap-2 -mr-[3px] group"
-        >
-          {isLoading ? (
-            <svg
-              className="animate-spin h-5 w-5 text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-          ) : (
-            <>
-              <p className="text-[13px] font-medium custom-font-family-01 pl-2">
-                Join Waitlist
-              </p>
-              <img
-                className="h-5 w-5 relative overflow-hidden shrink-0 transition-transform duration-300 ease-in-out transform group-hover:translate-x-0.5"
-                alt=""
-                src="/arrow_forward.svg"
-              />
-            </>
-          )}
-        </button>
       </div>
-      {message && (
-        <p
-          className={`text-center ${
-            messageType === "success" ? "text-green-500" : "text-red-500"
-          }`}
-        >
-          {message}
-        </p>
-      )}
-
-      <p className="custom-font-family text-[12px]">
-        Get a FREE 6 Months of all our Pro Features
-      </p>
+      <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px]">
+        <img
+          className="absolute top-[-104px] left-[-294.8px] w-[1017.5px] h-[1071px] object-contain z-[1]"
+          alt=""
+          src="/vector-509.svg"
+        />
+        <img
+          className="absolute top-[239px] left-[137.6px] w-[153px] h-[41px] overflow-hidden object-contain z-[2]"
+          loading="lazy"
+          alt=""
+          src="/frame@2x.png"
+        />
+        <img
+          className="absolute top-[785px] left-[-216.8px] w-[19.8px] h-[26.3px] z-[2]"
+          alt=""
+          src="/vector.svg"
+        />
+        <img
+          className="absolute top-[785px] left-[-186.6px] w-[5.8px] h-[26.3px] z-[2]"
+          alt=""
+          src="/vector-1.svg"
+        />
+        <img
+          className="absolute top-[786px] left-[401.6px] w-[173.7px] h-[24.2px] object-contain z-[2]"
+          loading="lazy"
+          alt=""
+          src="/mask-group@2x.png"
+        />
+      </div>
+      <div className="w-[428px] flex flex-row items-end justify-start gap-[9.8px] shrink-0 max-w-full">
+        <div className="ml-[-283.2px] h-[85.4px] flex flex-col items-start justify-start">
+          <img
+            className="w-[21.7px] h-[27.8px] relative shrink-0 z-[2]"
+            loading="lazy"
+            alt=""
+            src="/clip-path-group.svg"
+          />
+        </div>
+        <div className="w-[1087.9px] flex flex-row items-start justify-between shrink-0 max-w-[255%] gap-[20px]">
+          <div className="w-[103.5px] flex flex-col items-start justify-start pt-[642px] px-0 pb-0 box-border">
+            <div className="self-stretch flex flex-row items-end justify-between gap-[20px]">
+              <img
+                className="h-[26.3px] w-[23.5px] relative z-[2]"
+                loading="lazy"
+                alt=""
+                src="/vector-2.svg"
+              />
+              <img
+                className="self-stretch w-[21.2px] relative max-h-full min-h-[28px] z-[2]"
+                loading="lazy"
+                alt=""
+                src="/clip-path-group-1.svg"
+              />
+            </div>
+          </div>
+          <div className="w-[483px] flex flex-col items-end justify-start py-0 pr-[75px] pl-[19px] box-border gap-[118.9px] max-w-full">
+            <div className="self-stretch rounded-[100px] bg-darkgray box-border flex flex-row items-start justify-start py-1 px-[23px] gap-[10px] max-w-full z-[2] border-[1px] border-solid border-color-button-button-outline-primary">
+              <div className="flex-1 relative leading-[150%] font-medium inline-block max-w-full">
+                <p className="m-0 whitespace-pre-wrap">{`AI thinks about your next fit for you   ・   `}</p>
+                <p className="m-0 whitespace-pre-wrap">
+                  Get the best Deals ・ Make money doing what you Love
+                </p>
+              </div>
+              <img
+                className="h-4 w-4 relative overflow-hidden shrink-0 object-contain hidden"
+                alt=""
+                src="/octiconarrowup24@2x.png"
+              />
+            </div>
+            <div className="self-stretch flex flex-row items-start justify-end py-0 px-0.5 box-border max-w-full text-5xl text-color-text-text-primary font-gelasio">
+              <div className="w-[497.5px] flex flex-col items-end justify-start gap-[104.1px] max-w-[130%] shrink-0">
+                <div className="w-[382.3px] flex flex-col items-start justify-start gap-[16px] max-w-full">
+                  <div className="self-stretch flex flex-col items-end justify-start pt-0 px-0 pb-[13px] box-border gap-[16px] max-w-full">
+                    <div className="self-stretch flex flex-row items-start justify-end py-0 pr-[25px] pl-[26px] box-border max-w-full">
+                      <h1 className="m-0 h-[102px] flex-1 relative text-inherit leading-[140%] font-normal font-inherit flex items-center max-w-full z-[2]">
+                        <span>
+                          <p className="m-0">{`Transform Your Shopping with Image Search `}</p>
+                          <p className="m-0">- Join Seekstyle Early Access!</p>
+                        </span>
+                      </h1>
+                    </div>
+                    <div className="self-stretch relative text-xs leading-[140%] font-satoshi text-color-text-text-secondary z-[2]">
+                      Be the first to experience our cutting-edge image search
+                      technology. Snap a photo or upload an image to find your
+                      perfect style from multiple stores effortlessly. Sign up
+                      now and transform the way you shop!
+                    </div>
+                  </div>
+                  <div className="self-stretch flex flex-row items-start justify-start py-0 px-[23px] box-border max-w-full text-left text-[14px] text-color-button-button-label-secondary font-satoshi">
+                    <div className="flex-1 rounded-spacing-1 box-border overflow-hidden flex flex-row items-start justify-between py-[3px] pr-1.5 pl-[15px] max-w-full gap-[20px] z-[2] border-[1px] border-solid border-color-button-button-outline-primary mq293:flex-wrap">
+                      <div className="flex flex-col items-start justify-start pt-[7px] px-0 pb-0">
+                        <div className="relative leading-[140%] whitespace-nowrap">
+                          yourname@email.com
+                        </div>
+                      </div>
+                      <button className="cursor-pointer [border:none] py-spacing-1 pr-2 pl-spacing-2 bg-color-text-text-primary rounded-spacing-1 flex flex-row items-start justify-start gap-[8px]">
+                        <div className="flex flex-col items-start justify-start pt-[1.5px] px-0 pb-0">
+                          <div className="relative text-xs leading-[140%] font-medium font-satoshi text-color-button-button-label-primary text-left">
+                            Join waitlist
+                          </div>
+                        </div>
+                        <img
+                          className="h-5 w-5 relative min-h-[20px]"
+                          alt=""
+                          src="/arrow-forward.svg"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="self-stretch flex flex-row items-start justify-start py-0 px-[23px] box-border max-w-full text-xs text-color-text-text-secondary">
+                    <div className="flex-1 relative leading-[140%] inline-block max-w-full z-[2]">
+                      Get a FREE 6 Months of all our Pro Features
+                    </div>
+                  </div>
+                </div>
+                <div className="self-stretch flex flex-row items-start justify-start max-w-full">
+                  <div className="w-[447.7px] flex flex-col items-end justify-start gap-[32px] max-w-full">
+                    <div className="flex flex-col items-start justify-start gap-[8px]">
+                      <h1 className="m-0 h-[30px] relative text-inherit font-medium font-inherit inline-block z-[2]">{`Featured brands & stores`}</h1>
+                      <div className="relative text-xs leading-[140%] font-satoshi text-color-text-text-secondary z-[2]">{`Get Exclusive deals from this brands only on seekstyle `}</div>
+                    </div>
+                    <div className="self-stretch flex flex-row items-start justify-end py-0 pr-[9px] pl-0 box-border max-w-full">
+                      <footer className="flex-1 flex flex-row items-start justify-start gap-[44.7px] max-w-full text-center text-xs text-color-text-text-secondary font-satoshi mq342:flex-wrap">
+                        <div className="w-[143px] flex flex-col items-start justify-start pt-1.5 px-0 pb-0 box-border">
+                          <img
+                            className="self-stretch h-[30px] relative max-w-full overflow-hidden shrink-0 z-[2]"
+                            loading="lazy"
+                            alt=""
+                            src="/crocs-wordmark-1.svg"
+                          />
+                        </div>
+                        <div className="flex-1 flex flex-col items-start justify-start gap-[33.6px] min-w-[162px] mq250:gap-[17px]">
+                          <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-[11px]">
+                            <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
+                              <div className="w-[110px] flex flex-col items-start justify-start pt-[5px] px-0 pb-0 box-border">
+                                <img
+                                  className="self-stretch h-8 relative max-w-full overflow-hidden shrink-0 z-[2]"
+                                  loading="lazy"
+                                  alt=""
+                                  src="/asos-1.svg"
+                                />
+                              </div>
+                              <img
+                                className="h-[42px] w-[72.8px] relative shrink-0 z-[2]"
+                                loading="lazy"
+                                alt=""
+                                src="/group.svg"
+                              />
+                            </div>
+                          </div>
+                          <i className="relative leading-[140%] z-[2]">{`and a lot more local & Int’l brands coming in...`}</i>
+                        </div>
+                      </footer>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-[205px] flex flex-col items-start justify-start pt-[635px] px-0 pb-0 box-border">
+            <div className="self-stretch flex flex-row items-start justify-between gap-[20px]">
+              <img
+                className="self-stretch w-[75px] relative max-h-full overflow-hidden shrink-0 object-cover min-h-[42px] z-[2]"
+                loading="lazy"
+                alt=""
+                src="/new-balance-logo-2@2x.png"
+              />
+              <img
+                className="self-stretch w-[74px] relative max-h-full overflow-hidden shrink-0 min-h-[42px] z-[1]"
+                loading="lazy"
+                alt=""
+                src="/dr-martens-logo-1.svg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default WaitlistForm;
-
-
-// components/MyComponent.js
-import '../styles/globals.css'; // Ensure Tailwind CSS is imported
-
-const MyComponent = ({ isLoading }) => (
-  <button
-    type="submit"
-    disabled={isLoading}
-    className="relative right-2 top-1/2 transform -translate-y-1/2 custom-font-family-01 bg-[#1B243F] text-white rounded-md w-[115px] h-[36px] flex justify-center items-center gap-2 group" // Added `group` class here
-  >
-    {isLoading ? (
-      <svg
-        className="animate-spin h-5 w-5 text-white"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <circle
-          className="opacity-25"
-          cx="12"
-          cy="12"
-          r="10"
-          stroke="currentColor"
-          strokeWidth="4"
-        ></circle>
-        <path
-          className="opacity-75"
-          fill="currentColor"
-          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-        ></path>
-      </svg>
-    ) : (
-      <>
-        <p className="text-[13px] font-medium custom-font-family-01 pl-2">
-          Join Waitlist
-        </p>
-        <img
-          className="h-5 w-5 relative overflow-hidden shrink-0 transition-transform duration-300 ease-in-out transform group-hover:translate-x-1" // Adjust translate-x value
-          alt=""
-          src="/arrow_forward.svg"
-        />
-      </>
-    )}
-  </button>
-);
-
-export default MyComponent;
+export default Mobile;
