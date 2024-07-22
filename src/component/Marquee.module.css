@@ -8,6 +8,7 @@
   color: #ffffff;
   overflow: hidden;
   position: relative;
+  margin-top: rem;
 }
 .marquee:before, .marquee:after {
   position: absolute;

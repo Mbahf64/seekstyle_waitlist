@@ -18,7 +18,7 @@ const Page = () => {
       </div>
       <div className="flex flex-col items-center justify-center h-screen pt-[7vh] lg:pt-[5vh] 2xl:pt-[7vh]">
         <div className="flex flex-col items-center justify-center h-full w-full gap-4 p-8">
-          
+     
           <ShineBorder />
           <div className="flex flex-col items-center justify-center gap-3 text-center pt-[1rem] lg:pt-5">
             <img
@@ -27,13 +27,13 @@ const Page = () => {
               alt="Seekstyle Logo"
               src="seekstyle-logo.svg"
             />
-            <div className="flex flex-col gap-3 max-w-[350px] lg:max-w-[34rem] 2xl:max-w-[42rem] items-center justify-center pt-7 lg:pt-0 2xl:pt-[5vh]">
+            <div className="flex flex-col gap-3 max-w-[350px] lg:max-w-[34rem]  2xl:max-w-[42rem] items-center justify-center pt-7 lg:pt-0 2xl:pt-[5vh]">
               <p className="custom-text-color custom-font-family lg:text-[32px] 2xl:text-[40px] text-[24px] font-normal leading-tight">
                 Transform Your Shopping with Image Search <br className="lg:hidden" />- Join Seekstyle Early
                 Access!
               </p>
 
-              <p className="w-[382.34px] lg:w-[641.288px] custom-text-color-01 custom-font-family-01 text-[12px] lg:text-[15.5px] font-normal leading-tight mb-3">
+              <p className="w-[90vw]  lg:w-[641.288px] custom-text-color-01 custom-font-family-01 text-[12px] lg:text-[15.5px] font-normal leading-tight mb-3">
                 Be the first to experience our cutting-edge image search
                 technology. <br className="hidden lg:flex" />
                 Snap a photo or upload an image to find your perfect style from
@@ -48,8 +48,8 @@ const Page = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center gap-2 mt-[2rem] lg:mt-0 2xl:pt-[3vh]">
-            <div className="flex flex-col items-center gap-1 text-center mt-2 w-[283px]">
+          <div className="flex flex-col items-center gap-2 mt-[1rem] lg:mt-0 2xl:pt-[3vh]">
+            <div className="flex flex-col items-center gap-1 text-center lg:mt-11 w-[283px]">
               <h1 className="text-[#1B243F] custom-font-family text-[24px] 2xl:text-[28px] font-medium">
                 Featured brands & stores
               </h1>
@@ -59,7 +59,7 @@ const Page = () => {
             </div>
             <Marquee />
           </div>
-          <p className="text-[#646D80] custom-font-family-01 text-sm italic font-normal mt-[3px] lg:mt-0 2xl:pt-[1vh]">
+          <p className="text-[#646D80] custom-font-family-01 text-sm italic font-normal mb-[2px] lg:mt-0 2xl:pt-[1vh]">
             and a lot more local & Int’l brands coming in...
           </p>
         </div>
