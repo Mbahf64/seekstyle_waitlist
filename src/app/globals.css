@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Satoshi:ital,wght@0,400;0,500;1,400&display=swap");
+@import url('https://fonts.cdnfonts.com/css/satoshi');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,7 +23,7 @@ body, html {
   --sds-size-stroke-border: 0.8; /* Example value, replace with actual value */
   --Color-text-text-secondary: #646D80;
   --Color-text-text-primary: #1B243F;
-  --marquee-width: 150vh;
+  --marquee-width: 130vh;
   --marquee-height: 20vh;
   /* --marquee-elements: 12; */ /* defined with JavaScript */
   --marquee-elements-displayed: 5;
@@ -55,17 +55,74 @@ body, html {
 
 .custom-font-family-01 {
   font-family: 'Satoshi', sans-serif;
+                                                
 }
 
 
-@media (max-width: 600px) {
-  html { font-size: 12px; }
-  :root {
-    --marquee-width: 10vw;
-    --marquee-height: 16vh;
-    --marquee-elements-displayed: 3;
-  }
-  .marquee:before, .marquee:after { width: 5rem; }
+/* Additional styles for screens wider than 430px */
+
+/* styles.css */
+
+
+
+.custom-input {
+  font-size: 14px;
+  background-color: transparent;
+  width: 100%;
+  height: 46px;
+  border-radius: 0.375rem; /* 6px */
+  padding-left: 16px;
+  padding-right: 140px;
+  outline: none;
+  border-width: 2px;
+  border-color: #D6DADE;
 }
 
+.custom-input:focus {
+  border-color: #D6DADE;
+  box-shadow: none;
+}
+
+.custom-input:active {
+  background-color: transparent;
+}
+
+
+.custom-button {
+  position: absolute;
+  right: 0.5rem; /* equivalent to right-2 in Tailwind */
+  top: 50%;
+  transform: translateY(-50%); /* equivalent to -translate-y-1/2 in Tailwind */
+  background-color: #1B243F; /* background color */
+  color: white; /* text color */
+  border-radius: 0.375rem; /* equivalent to rounded-md in Tailwind */
+  width: 115px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* equivalent to gap-2 in Tailwind */
+  cursor: pointer; /* Default cursor for clickable button */
+  margin-right: -3px;
+}
+
+.custom-button:focus {
+  outline: none;
+}
+
+
+
+.image {
+  height: 1.25rem; /* equivalent to h-5 in Tailwind */
+  width: 1.25rem; /* equivalent to w-5 in Tailwind */
+  position: relative; /* equivalent to relative */
+  overflow: hidden; /* equivalent to overflow-hidden */
+  flex-shrink: 0; /* equivalent to shrink-0 */
+  transition: transform 300ms ease-in-out; /* equivalent to transition-transform duration-300 ease-in-out */
+  transform: translateX(0);
+}
+
+.image:hover {
+  transform: translateX(0.125rem); /* translate-x-0.5 */
+}
 

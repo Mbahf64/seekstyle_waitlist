@@ -3,9 +3,9 @@
 
 
 .marquee {
-  width: 70vw;
+  width: 80vw;
   height: 42px;
-  color: #eee;
+  color: #ffffff;
   overflow: hidden;
   position: relative;
 }
@@ -19,7 +19,7 @@
 }
 .marquee:before {
   left: 0;
-  background: linear-gradient(to right, #ffffff 0%, transparent 100%);
+  background: linear-gradient(to right, #ffffff00 0%, transparent 100%);
 }
 .marquee:after {
   right: 0;
@@ -30,7 +30,7 @@
   height: 100%;
   display: flex;
   animation: scrolling var(--marquee-animation-duration) linear infinite;
-  gap: 2px;
+  gap: px;
 }
 @keyframes scrolling {
     0% {
@@ -51,8 +51,28 @@
   /* white-space: nowrap; */
 }
 
-.marqueeContent li img {
-  /* width: 35%; */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .marquee {
+    width: 100vh; 
+    max-width: 100%; /* Ensure it doesn't exceed viewport width */
+  }
+
+  .marquee-content {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee {
+    width: 100vh; 
+    max-width: 100%; /* Ensure it doesn't exceed viewport width */
+  }
+
+  .marquee-content {
+    font-size: 12px; /* Further adjust font size for very small screens */
+  }
 }
 
 

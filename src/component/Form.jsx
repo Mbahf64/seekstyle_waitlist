@@ -63,56 +63,46 @@ const Form = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <form onSubmit={handleSubmit} className="relative w-80">
+    <div className="flex flex-col items-center gap-[16px]">
+      <form onSubmit={handleSubmit} className="relative w-[336px]">
         <input
           type="email"
           value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            localStorage.setItem("email", e.target.value);
-          }}
+          onChange={(e) => setEmail(e.target.value)}
           required
-       className="custom-font-family-01 text-[14px] bg-transparent  h-[46px] rounded-md pl-[16px] pr-[140px] outline-none border-[1px] border-[#D6DADE] focus:border-[#D6DADE] focus:ring-0 active:bg-transparent"
-          placeholder="Enter your email"
+          className="custom-font-family-01 custom-input custom-input:focus custom-input:active"
+          placeholder="yourname@email.com"
         />
-<button
-  type="submit"
-  disabled={isLoading}
-  className="absolute right-2 top-1/2 transform -translate-y-1/2 custom-font-family-01
-  bg-[#1B243F] text-white rounded-md w-[115px] h-[36px] flex justify-center 
-  items-center gap-2 -mr-[3px] group"
->
-  {isLoading ? (
-    <p className="text-[12px] font-medium custom-font-family-01">
-      Loading...
-    </p>
-  ) : (
-    <>
-      <p className="text-[12px] font-medium custom-font-family-01 pl-2">
-        Join Waitlist
-      </p>
-      <img
-        className="h-5 w-5 relative overflow-hidden shrink-0 transition-transform duration-300 ease-in-out transform group-hover:translate-x-0.5"
-        alt=""
-        src="/arrow_forward.svg"
-      />
-    </>
-  )}
-</button>
 
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="custom-button custom-button:focus custom-font-family-01"
+        >
+          {isLoading ? (
+            <span className="text-white">Submitting...</span>
+          ) : (
+            <>
+              <p className="text-[12px] font-medium custom-font-family-01 pl-2">
+                Join Waitlist
+              </p>
+              <img
+                className="image"
+                alt=""
+                src="/arrow_forward.svg"
+              />
+            </>
+          )}
+        </button>
       </form>
       {message && (
         <p
-          className={`text-center ${
-            messageType === "success" ? "text-green-500" : "text-red-500"
-          }`}
+          className={`text-center ${messageType === "success" ? "text-green-500" : "text-red-500"
+            }`}
         >
           {message}
         </p>
       )}
-
-      
     </div>
   );
 };

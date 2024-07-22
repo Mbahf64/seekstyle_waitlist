@@ -19,6 +19,8 @@ const Marquee = () => {
 
 
   return (
+
+    
     <div className={styles.marquee}>
       <ul className={styles.marqueeContent}>
         <li><img className='w-[69px] h-[30px]' src="/Zara.svg" alt="Zara" /></li>
@@ -29,8 +31,6 @@ const Marquee = () => {
         <li><img className='w-[173.65px] h-[24.17px]' src="/Ashluxury.svg" alt="Ashluxury" /></li>
         <li><img className='w-[75px] h-[42px]' src="/NewBalance.svg" alt="NewBalance" /></li>
         <li><img className='w-[74px] h-[42px]' src="/DrMartens.svg" alt="DrMartens" /></li>
-        
-        
       </ul>
     </div>
   );

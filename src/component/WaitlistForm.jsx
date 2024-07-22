@@ -5,12 +5,10 @@ import Form from "../component/Form"
 
 const WaitlistForm = () => {
   return (
-    <div className="flex flex-col items-center gap-[16px]">
+    <div className="flex flex-col items-center gap-[100px]">
       <Form />
 
-      <p className="custom-font-family text-[12px]">
-        Get a FREE 6 Months of all our Pro Features
-      </p>
+    
     </div >
 
   );
