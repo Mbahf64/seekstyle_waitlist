@@ -50,3 +50,21 @@
     padding: 5px;
   }
 }
+
+
+/* @media (max-width: 768px) {
+  .full-text {
+      display: none;
+  }
+  .split-text {
+      display: block;
+  }
+}
+@media (min-width: 769px) {
+  .full-text {
+      display: block;
+  }
+  .split-text {
+      display: none;
+  }
+} */

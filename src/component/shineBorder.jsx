@@ -14,12 +14,7 @@ const shineBorder = () => {
     AI thinks about your next fit for you ・ Get the best Deals ・ Make
     money doing what you Love
     </p> */}
-   <div className="flex-1 relative leading-[150%] font-medium inline-block  lg:flex max-w-[90vw] text-[10px] ">
-            <p className="m-0 whitespace-pre-wrap flex items-center justify-center">{`AI thinks about your next fit for you  ・`}</p>
-            <p className="m-0 whitespace-pre-wrap">
-              Get the best Deals ・ Make money doing what you Love
-            </p>
-          </div>
+ 
   </ShineBorder>
   );
 }

@@ -18,8 +18,11 @@ const Page = () => {
       </div>
       <div className="flex flex-col items-center justify-center h-screen pt-[7vh] lg:pt-[5vh] 2xl:pt-[7vh]">
         <div className="flex flex-col items-center justify-center h-full w-full gap-4 p-8">
-     
-          <ShineBorder />
+          {/* <ShineBorder /> */}
+      <div className="flex lg:inline-flex w-[90vw] border px-[24px] py-[6px] rounded-[100px] lg:w-[700px] items-center justify-center bg-[#ECECEC] border-[#D6DADE] text-[#646D80] font-medium bg-opacity-35">
+        <p className="text-[10.5px] lg:text-[14px]"><span className="flex justify-center -mb-4">AI thinks about your next fit for you   ・</span> <br className="lg:hidden "/>  Get the best Deals  ・  Make money doing what you Love</p>
+      </div>
+
           <div className="flex flex-col items-center justify-center gap-3 text-center pt-[1rem] lg:pt-5">
             <img
               className="h-[41px] w-[153px] pb-0 2xl:mt-[3vh]"
@@ -29,8 +32,8 @@ const Page = () => {
             />
             <div className="flex flex-col gap-3 max-w-[350px] lg:max-w-[34rem]  2xl:max-w-[42rem] items-center justify-center pt-7 lg:pt-0 2xl:pt-[5vh]">
               <p className="custom-text-color custom-font-family lg:text-[32px] 2xl:text-[40px] text-[24px] font-normal leading-tight">
-                Transform Your Shopping with Image Search <br className="lg:hidden" />- Join Seekstyle Early
-                Access!
+                Transform Your Shopping with Image Search{" "}
+                <br className="lg:hidden" />- Join Seekstyle Early Access!
               </p>
 
               <p className="w-[90vw]  lg:w-[641.288px] custom-text-color-01 custom-font-family-01 text-[12px] lg:text-[15.5px] font-normal leading-tight mb-3">
