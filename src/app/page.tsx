@@ -57,7 +57,7 @@ const Page = () => {
           </div>
           <div className="flex flex-col items-center gap-2 mt-[1rem] lg:mt-0 2xl:pt-[3vh]">
             <div className="flex flex-col items-center gap-1 text-center lg:mt-11 w-[283px]">
-              <h1 className="text-[#1B243F] custom-font-family text-[24px] 2xl:text-[28px] font-medium">
+              <h1 className="text-[#1B243F] custom-font-family text-[24px] 2xl:text-[24px] font-medium">
                 Featured brands & stores
               </h1>
               <p className="text-[#646D80] custom-font-family-01 text-[11.2px] font-normal mb-4 w-[283px] 2xl:pb-[3vh]">
