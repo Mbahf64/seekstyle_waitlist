@@ -19,10 +19,14 @@ const Page = () => {
       <div className="flex flex-col items-center justify-center h-screen pt-[7vh] lg:pt-[5vh] 2xl:pt-[7vh]">
         <div className="flex flex-col items-center justify-center h-full w-full gap-4 p-8">
           {/* <ShineBorder /> */}
-      <div className="flex lg:inline-flex w-[90vw] border px-[24px] py-[6px] rounded-[100px] lg:w-[700px] items-center justify-center bg-[#ECECEC] border-[#D6DADE] text-[#646D80] font-medium bg-opacity-35">
-        <p className="text-[10.5px] lg:text-[14px]"><span className="flex justify-center -mb-4">AI thinks about your next fit for you   ・</span> <br className="lg:hidden "/>  Get the best Deals  ・  Make money doing what you Love</p>
-      </div>
+          <div className="flex flex-col lg:flex-row items-center w-[90vw] border px-[24px] py-[6px] rounded-[100px] lg:w-[700px] i justify-center bg-[#ECECEC] border-[#D6DADE] text-[#646D80] font-medium bg-opacity-35 text-[10.7px] lg:text-[14px] ">
+          <p className="m-0 whitespace-pre-wrap">{`AI thinks about your next fit for you   ・`}</p>
+            <p className="m-0 whitespace-pre-wrap">
+              Get the best Deals ・ Make money doing what you Love
+            </p>
+          </div>
 
+     
           <div className="flex flex-col items-center justify-center gap-3 text-center pt-[1rem] lg:pt-5">
             <img
               className="h-[41px] w-[153px] pb-0 2xl:mt-[3vh]"
