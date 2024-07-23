@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Img from "./img.svg";
-import WaitlistForm from "../component/WaitlistForm";
+import Form from "../component/Form";
 import Marquee from "../component/Marquee";
 import ShineBorder from "../component/shineBorder";
 
@@ -49,7 +49,7 @@ const Page = () => {
               </p>
             </div>
             <div className="2xl:pt-[1vh]">
-              <WaitlistForm />
+              <Form />
               <p className="custom-font-family text-[12px] mt-3 ">
                 Get a FREE 6 Months of all our Pro Features
               </p>
