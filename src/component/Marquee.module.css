@@ -8,7 +8,7 @@
   color: #ffffff;
   overflow: hidden;
   position: relative;
-  margin-top: rem;
+  margin-top: 1rem;
 }
 .marquee:before, .marquee:after {
   position: absolute;
@@ -20,18 +20,19 @@
 }
 .marquee:before {
   left: 0;
-  background: linear-gradient(to right, #ffffff00 0%, transparent 100%);
+  background: linear-gradient(to right, #ffffff 0%, transparent 100%);
 }
 .marquee:after {
   right: 0;
-  background: linear-gradient(to left, #ffffff00 0%, transparent 100%);
+  background: linear-gradient(to left, #F8F9FC 0%, transparent 100%);
 }
 .marqueeContent {
+  display: flex;
   list-style: none;
-  height: 100%;
+
   display: flex;
   animation: scrolling var(--marquee-animation-duration) linear infinite;
-  gap: px;
+  gap: 2rem
 }
 @keyframes scrolling {
     0% {
@@ -46,8 +47,8 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  width: var(--marquee-element-width);
-  max-height: 100%;
+  width: auto;
+  padding: 0 1rem;
   /* font-size: calc(var(--marquee-height)*3/4); */
   /* white-space: nowrap; */
 }
@@ -57,7 +58,7 @@
 @media (max-width: 768px) {
   .marquee {
     width: 100vh; 
-    max-width: 100%; /* Ensure it doesn't exceed viewport width */
+    /* Ensure it doesn't exceed viewport width */
   }
 
   .marquee-content {
@@ -68,7 +69,7 @@
 @media (max-width: 480px) {
   .marquee {
     width: 100vh; 
-    max-width: 100%; /* Ensure it doesn't exceed viewport width */
+    /* Ensure it doesn't exceed viewport width */
   }
 
   .marquee-content {

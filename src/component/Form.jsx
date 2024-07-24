@@ -31,11 +31,12 @@ const Form = () => {
     }
 
     setIsLoading(true);
+
     try {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email }),
       });
