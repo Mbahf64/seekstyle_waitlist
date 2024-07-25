@@ -1,5 +1,3 @@
-// pages/api/subscribe.js
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.status(405).json({ message: 'Method not allowed' });
@@ -13,25 +11,30 @@ export default async function handler(req, res) {
     return;
   }
 
-  const mailchimpUrl = 'https://gmail.us17.list-manage.com/subscribe/post?u=8e715bcf314525a8ae38cfeb3&id=a2423c6411&f_id=00e7e9e3f0';
+  const mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
+  const mailchimpServerPrefix = process.env.MAILCHIMP_SERVER_PREFIX; 
+  const listId = process.env.MAILCHIMP_LIST_ID;
 
-  const params = new URLSearchParams();
-  params.append('EMAIL', email);
-  params.append('b_8e715bcf314525a8ae38cfeb3_a2423c6411', '');
+  const mailchimpUrl = `https://${mailchimpServerPrefix}.api.mailchimp.com/3.0/lists/${listId}/members`;
 
   try {
     const response = await fetch(mailchimpUrl, {
       method: 'POST',
-      body: params,
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': `apikey ${mailchimpApiKey}`,
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        email_address: email,
+        status: 'subscribed',
+      }),
     });
 
-    if (response.ok || response.status === 302) {
+    if (response.ok) {
       res.status(200).json({ message: 'You have been added to the waitlist!' });
     } else {
-      res.status(400).json({ message: 'Something went wrong.' });
+      const errorData = await response.json();
+      res.status(400).json({ message: 'Something went wrong.', error: errorData });
     }
   } catch (error) {
     res.status(500).json({ message: 'Error: Unable to submit your request.' });
